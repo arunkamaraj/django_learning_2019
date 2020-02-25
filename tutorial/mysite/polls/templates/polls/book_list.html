@@ -1,0 +1,38 @@
+<h1 xmlns="http://www.w3.org/1999/html">book list</h1>
+<a href="{% url 'polls:bookupload' %}">upload here</a>
+
+{% if result %}
+    <table>
+        <thead>
+            <tr>
+                <th>cover</th>
+                <th>book name</th>
+                <th>author</th>
+                <th>pdf</th>
+                <th>delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in result %}
+                <tr>
+                    <td> 
+                        {% if data.cover %}
+                            <img src="{{data.cover.url}}">
+                        {% endif%}
+                    </td>
+                    <td> {{data.title}} </td>
+                    <td> {{data.author}} </td>
+                    <td>
+                        <a href="{{data.pdf.url}}"> download here !!!</a>
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'polls:delete' data.id  %}">
+                            {% csrf_token %}
+                            <input type="submit" name="delete" value="delete me">
+                        </form>
+                    </td>
+                </tr>
+             {% endfor %}
+        </tbody>
+    </table>
+{% endif %}

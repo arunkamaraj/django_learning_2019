@@ -1,0 +1,11 @@
+<h1>upload here</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="document" >
+    <button type="submit">Upload file</button>
+</form>
+
+{% if url %}
+    <a href="{{ url }}">{{ url }}</a>
+{% endif %}
