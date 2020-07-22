@@ -1,0 +1,40 @@
+{
+    "configurations": [
+        {
+            "name": "Python: Django",
+            "type": "python",
+            "request": "launch",
+            "program": "C:\\personal_learning\\django_learning_2019\\morden_blog\\advance_blog\\manage.py",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true,
+            "debugOptions": [
+                        "WaitOnAbnormalExit",
+                        "WaitOnNormalExit",
+                        "RedirectOutput",
+                        "DjangoDebugging"
+                    ],
+        }
+    ]
+}
+// {
+//     "configurations": [
+//         {
+//         "name":"Python: Django",
+//         "type":"python",
+//         "request":"launch",
+//         "stopOnEntry": false,
+//         "pythonPath": "C:\\personal_learning\\django_learning_2019\\morden_blog\\env-blog\\Scripts\\python.exe",
+//         "program":"C:\\personal_learning\\django_learning_2019\\morden_blog\\advance_blog\\manage.py",
+//         "args":["runserver","--noreload"],
+//         "django":true}
+//         ],
+//     "debugOptions": [
+//         "WaitOnAbnormalExit",
+//         "WaitOnNormalExit",
+//         "RedirectOutput",
+//         "DjangoDebugging"
+//     ],
+// }

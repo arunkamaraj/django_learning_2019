@@ -1,0 +1,39 @@
+{% extends 'posts/base.html' %}
+
+{% block  content %}
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{title}}</h1>
+    </div>
+    
+    {% for obj in object_list %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="thumbnail">                
+                    <div class="caption">
+                        
+                        {% if obj.img %}
+                            <img class="img-responsive" src="{{ obj.img.url}}">
+                        {% endif %}
+                        <h3>
+                            <a href="{{ obj.get_absolute_url }}">{{obj.title|title }}</a> <small>{{ obj.timestamp|timesince}} ago </small>
+                        </h3>
+                        <p>author : {{obj.author}}</p>
+                        <p>{{obj.content }}</p>
+                        <p><a href="{{ obj.get_absolute_url }}" class="btn btn-primary" role="button">View</a></p>
+                    </div>                
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    {% if object_list.has_previous %}
+        <a href="{% url 'post:list' %}?page={{ object_list.previous_page_number }}">Previous</a>
+    {% endif %}
+        
+    {% if object_list.has_next %}
+        <a href="{% url 'post:list' %}?page={{ object_list.next_page_number }}">Next</a>
+    {% endif %}
+
+    
+    
+{% endblock content%}
